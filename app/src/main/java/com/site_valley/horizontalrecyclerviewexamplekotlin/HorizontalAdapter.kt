@@ -12,6 +12,7 @@ class HorizontalAdapter(val list: ArrayList<String>) :
     RecyclerView.Adapter<HorizontalAdapter.MyView>() {
     class MyView(view: View) : RecyclerView.ViewHolder(view) {
         var imageView: ImageView
+
         init {
             imageView = view
                 .findViewById<ImageView>(R.id.image)
@@ -29,16 +30,16 @@ class HorizontalAdapter(val list: ArrayList<String>) :
         return MyView(itemView)
     }
 
-        override fun onBindViewHolder(holder: MyView, position: Int) {
-            val listData = list[position]
+    override fun onBindViewHolder(holder: MyView, position: Int) {
+        val listData = list[position]
 
-            //Loading Image into view
-            Picasso.get().load(listData).placeholder(R.mipmap.ic_launcher).into(holder.imageView)
+        //Loading Image into view
+        Picasso.get().load(listData).placeholder(R.mipmap.ic_launcher).into(holder.imageView)
 
-        }
+    }
 
-        override fun getItemCount(): Int {
-            return list.size
-        }
+    override fun getItemCount(): Int {
+        return list.size
+    }
 
 }
